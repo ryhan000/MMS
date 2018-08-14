@@ -1,0 +1,78 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<form method="POST" class="post-form" action="">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Registration</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Name:</label>  
+    <div class="col-sm-4">  
+      {{ form.name }}  
+      </br>
+
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Phn:</label>  
+    <div class="col-sm-4">  
+      {{ form.phn }}  
+      </br>
+
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Date:</label>  
+    <div class="col-sm-4">  
+      {{ form.regi_date }}  
+      </br>
+    </br>
+
+    </div>  
+  </div>   
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  
+
+</br>
+</br>
+
+{% if register_list %}
+</br>
+</br>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Phn</th>
+        <th>Regi_Date</th>
+    </tr>
+    {% for register in  register_list %}
+    <tr> 
+        <td><a href="/meal/{{register.name }}/">{{register.name}}</a></td>
+        <td>{{register.phn}}</td>
+        <td>{{register.regi_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No meals are available.</p>
+{% endif %}

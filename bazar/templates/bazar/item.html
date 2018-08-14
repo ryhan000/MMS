@@ -1,0 +1,24 @@
+{% if bazar %}
+<h1>{{ bazar.name }}</h1>
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+    </tr>
+
+    {% for item in  bazar.item_set.all %}
+
+    <tr> 
+        <td> {{ item.item_name }}</td>
+        <td> {{ item.amount }}</td>
+    </tr> 
+
+   {% endfor %}
+
+<table>
+
+
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

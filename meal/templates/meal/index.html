@@ -1,0 +1,61 @@
+</br>
+</br>
+------------hello----------
+</br>
+</br>
+</br>
+ {% load staticfiles %}
+
+<form method="POST" action="">
+  {% csrf_token %}
+
+   Name
+   {{form.name}}
+   </br>
+   </br>
+   Meal
+   {{form.meal_number}}
+   </br>
+   </br>
+   Date
+   {{form.pub_date}}
+</br>
+</br>
+   <button type="submit">Submit</button>
+</form>
+
+
+
+
+{% if meal_list %}
+
+</br>
+</br>
+Total bazar :{{total_bazar}}
+</br>
+</br>
+Total meal :{{total_meal}}
+</br>
+</br>
+Total meal rate :{{meal_rate}}
+</br>
+</br>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Meal</th>
+        <th>Date</th>
+    </tr>
+    {% for meal in meal_list %}
+    <tr> 
+        <td><a href="/meal/{{ meal.name }}/">{{meal.name}}</a></td>
+        <td>{{meal.meal_number}}</td>
+        <td>{{meal.pub_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No meals are available.</p>
+{% endif %}
+
+

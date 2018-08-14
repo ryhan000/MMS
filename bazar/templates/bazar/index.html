@@ -1,0 +1,33 @@
+{% if bazar_list %}
+
+</br>
+</br>
+Total bazar :{{total_bazar_amount}}
+</br>
+</br>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Individual</th>
+    </tr>
+    {% for bazar in bazar_list %}
+    <tr> 
+        <td><a href="/bazar/{{ bazar.id }}/">{{bazar.name}}</a></td>
+        <td>{{bazar.amount}}</td>
+        <td>{{bazar.pub_date}}</td>
+        <td><a href="/bazar/{{ bazar.name }}/">Individual</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+-----------CREATE ACCOUNT-------------
+
+
+

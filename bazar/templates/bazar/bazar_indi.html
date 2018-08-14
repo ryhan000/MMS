@@ -1,0 +1,24 @@
+{% if bazar_details_list %}
+
+</br>
+</br>
+Total Bazar: {{total_bazar}}
+</br>
+</br>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    {% for bazar in bazar_details_list %}
+    <tr> 
+        <td>{{bazar.name}}</a></td>
+        <td>{{bazar.amount}}</td>
+        <td>{{bazar.pub_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>Nooooooo bazar details are available.</p>
+{% endif %}

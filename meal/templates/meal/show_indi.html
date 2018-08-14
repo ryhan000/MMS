@@ -1,0 +1,33 @@
+{% if meal_details_list%}
+
+</br>
+</br>
+Total meal :{{total_meal}}
+</br>
+</br>
+Meal rate :{{meal_rate}}
+</br>
+</br>
+ Total amount: {{total_meal_amount}}
+</br>
+</br>
+Total bazar:{{total_bazar}}
+</br>
+</br>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Meal</th>
+        <th>Date</th>
+    </tr>
+    {% for meal in meal_details_list %}
+    <tr> 
+        <td>{{meal.name}}</a></td>
+        <td>{{meal.meal_number}}</td>
+        <td>{{meal.pub_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No meals details are available.</p>
+{% endif %}
